@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque en ligne</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 p-6">
+    <header class="mb-6">
+        <nav class="flex justify-between bg-blue-600 text-white p-4">
+            <a href="/" class="text-lg font-bold">Bibliothèque en ligne</a>
+            <div>
+                <a href="/" class="mx-2">Accueil</a>
+                <a href="/livres" class="mx-2">Livres</a>
+                <a href="/emprunts" class="mx-2">Emprunts</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="text-2xl font-bold mb-4">Liste des livres</h1>
+        <table class="min-w-full bg-white border-collapse border border-gray-300">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="p-2 border border-gray-300">Titre</th>
+                    <th class="p-2 border border-gray-300">Auteur</th>
+                    <th class="p-2 border border-gray-300">Année de publication</th>
+                    <th class="p-2 border border-gray-300">Disponible</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for livre in livres %}
+                <tr>
+                    <td class="p-2 border border-gray-300">{{ livre['titre'] }}</td>
+                    <td class="p-2 border border-gray-300">{{ livre['nom_auteur'] }}</td>
+                    <td class="p-2 border border-gray-300">{{ livre['date_public'] }}</td>
+                    <td class="p-2 border border-gray-300">{{ livre['disponible'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>

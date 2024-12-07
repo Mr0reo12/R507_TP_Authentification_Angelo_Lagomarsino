@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>Résultats de la recherche</title>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-4">Résultats de la requête</h1>
+
+        {% if resultats %}
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        {% if livre %}
+                            <th class="py-3 px-6 text-left">Titre</th>
+                            <th class="py-3 px-6 text-left">Auteur ID</th>
+                            <th class="py-3 px-6 text-left">Date de Publication</th>
+                            <th class="py-3 px-6 text-left">Emprunté ?</th>
+                        {% else %}
+                            <th class="py-3 px-6 text-left">Nom</th>
+                            <th class="py-3 px-6 text-left">Email</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                    {% for item in resultats %}
+                        <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            {% if livre %}
+                                <td class="py-3 px-6 text-left whitespace-nowrap">{{ item['titre'] }}</td>
+                                <td class="py-3 px-6 text-left">{{ item['auteur_id'] }}</td>
+                                <td class="py-3 px-6 text-left">{{ item['date_public'] }}</td>
+                                <td class="py-3 px-6 text-left">{{ "Oui" if item['emprunteur_id'] is none else "Non" }}</td>
+                            {% else %}
+                                <td class="py-3 px-6 text-left whitespace-nowrap">{{ item['nom_utilisateur'] }}</td>
+                                <td class="py-3 px-6 text-left">{{ item.get('email', 'N/A') }}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="text-red-500 mt-4">Aucun résultat trouvé.</p>
+        {% endif %}
+
+        <a href="/" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Retour</a>
+    </div>
+</body>
+</html>

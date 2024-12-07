@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque en ligne - Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-lg font-bold"><a href="/">Bibliothèque en ligne</a></h1>
+            <nav>
+                <a href="/" class="mx-2 hover:underline">Accueil</a>
+                <a href="/livres" class="mx-2 hover:underline">Livres</a>
+                <a href="/emprunts" class="mx-2 hover:underline">Emprunts</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto my-8 p-4 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-6">Bienvenue sur la bibliothèque en ligne</h2>
+        <form method="post" action="/resultats" class="space-y-6">
+            <div>
+                <label for="utilisateur" class="block text-lg font-medium mb-2">Nom d'utilisateur</label>
+                <input type="text" id="utilisateur" name="utilisateur" class="w-full border border-gray-300 p-2 rounded-md" placeholder="Entrez le nom de l'utilisateur">
+                <p class="text-sm text-gray-500 mt-2">Si aucun nom (ou id) n'est fourni, tous les utilisateurs seront affichés</p>
+                <button type="submit" name="action" value="utilisateur" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">Rechercher Utilisateur</button>
+            </div>
+
+            <div>
+                <label for="livre" class="block text-lg font-medium mb-2">Titre du livre</label>
+                <input type="text" id="livre" name="livre" class="w-full border border-gray-300 p-2 rounded-md" placeholder="Entrez le titre du livre">
+                <p class="text-sm text-gray-500 mt-2">Si aucun livre (ou id) n'est fourni, tous les livres seront affichés</p>
+                <button type="submit" name="action" value="livre" class="mt-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded">Rechercher Livre</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

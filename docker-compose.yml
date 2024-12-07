@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: fastapi-api
+    ports:
+      - "5009:5009"  # Mapea el puerto 5009 del contenedor al 5009 del host
+    networks:
+      - app-network
+
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    container_name: fastapi-front
+    ports:
+      - "5010:80"  # Mapea el puerto 80 del contenedor al 5010 del host
+    depends_on:
+      - api
+    networks:
+      - app-network
+    environment:
+      - API_SERVICE_URL=http://fastapi-api:5009  # URL para acceder al backend desde el frontend
+
+networks:
+  app-network:
+    driver: bridge
+
