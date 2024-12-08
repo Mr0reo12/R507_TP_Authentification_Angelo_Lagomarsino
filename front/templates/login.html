@@ -10,12 +10,14 @@
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 class="text-2xl font-bold text-center mb-6">Bienvenue sur la bibliothèque en ligne</h2>
         
-        <!-- Mensaje de error (si existe) -->
-        <div id="error-message" class="text-red-500 text-sm mb-4 hidden">
-            Erreur 401: Nom d'utilisateur ou mot de passe incorrect
+        <!-- Mensaje de error dinámico -->
+        {% if error %}
+        <div class="text-red-500 text-sm mb-4">
+            {{ error }}
         </div>
+        {% endif %}
 
-        <form id="login-form" action="/token" method="post">
+        <form id="login-form" action="/login" method="post">
             <div class="mb-4">
                 <label for="username" class="block text-gray-700 font-bold mb-2">Nom d'utilisateur</label>
                 <input type="text" id="username" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nom d'utilisateur" required>
@@ -31,14 +33,5 @@
             </div>
         </form>
     </div>
-
-    <script>
-        // Este script muestra un mensaje de error si el login falla
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('error')) {
-            document.getElementById('error-message').classList.remove('hidden');
-        }
-    </script>
 </body>
 </html>
-

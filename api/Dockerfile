@@ -1,18 +1,18 @@
-# Dockerfile para construir la aplicación FastAPI
-FROM python:3.9-slim
+# Dockerfile pour le Backend
+FROM python:3.11-slim
 
-# Establecer el directorio de trabajo dentro del contenedor
+# Définir le répertoire de travail
 WORKDIR /app
 
-# Copiar los archivos al contenedor
+# Copier les fichiers du backend dans le conteneur
 COPY . .
 
-# Instalar las dependencias necesarias
-RUN pip install --no-cache-dir fastapi uvicorn Jinja2 requests python-multipart
+# Installer les dépendances
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install python-multipart
 
-# Exponer el puerto que utilizará la aplicación
+# Exposer le port utilisé par le backend
 EXPOSE 5009
 
-# Comando para ejecutar la aplicación
-CMD ["python", "api.py"]
-
+# Commande pour lancer le backend
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "5009"]

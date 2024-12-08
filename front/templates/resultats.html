@@ -7,6 +7,17 @@
     <title>Résultats de la recherche</title>
 </head>
 <body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-lg font-bold"><a href="/">Bibliothèque en ligne</a></h1>
+            <nav>
+                <a href="/accueil" class="mx-2 hover:underline">Accueil</a>
+                <a href="/livres" class="mx-2 hover:underline">Livres</a>
+                <a href="/emprunts" class="mx-2 hover:underline">Emprunts</a>
+            </nav>
+        </div>
+    </header>
     <div class="container mx-auto p-8">
         <h1 class="text-3xl font-bold mb-4">Résultats de la requête</h1>
 
@@ -45,7 +56,7 @@
             <p class="text-red-500 mt-4">Aucun résultat trouvé.</p>
         {% endif %}
 
-        <a href="/" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Retour</a>
+        <a href="/accueil" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Retour</a>
     </div>
 </body>
 </html>
