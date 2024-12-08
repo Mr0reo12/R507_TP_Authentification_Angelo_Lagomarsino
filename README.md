@@ -1,4 +1,4 @@
-# Projet de Microservices avec Docker : Bibliothèque en Ligne
+# Projet R507 de Microservices avec FastAPI,Docker,JWT : Bibliothèque en Ligne
 
 Ce projet est une application de gestion de bibliothèque construite à l'aide de trois microservices : **Frontend**, **Backend** et **Auth**, chacun géré indépendamment et conteneurisé avec Docker.
 
@@ -100,5 +100,5 @@ docker compose down
 - **Erreur "No such file or directory"** : Assurez-vous que tous les fichiers `Dockerfile` et `requirements.txt` sont présents dans les répertoires correspondants.
 - **Ports déjà utilisés** : Vérifiez que les ports `5002`, `5009`, et `5010` ne sont pas occupés par d'autres applications.
 
-Bon développement !
+
 
