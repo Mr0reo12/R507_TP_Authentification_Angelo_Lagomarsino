@@ -1,21 +1,17 @@
-# FastAPI y dependencias principales
+# FastAPI et principales dépendances
 fastapi==0.88.0
 uvicorn[standard]==0.20.0
 
-# Seguridad y autenticación
+# Sécurité et authentification
 python-jose==3.3.0
 passlib[bcrypt]==1.7.4
 
-# Cliente HTTP para autenticación (si el front realiza solicitudes al auth o API)
+# Client HTTP pour l'authentification (si le frontend effectue des requêtes vers le service Auth ou l'API)
 httpx==0.23.3
 
-# SQLite - base de datos integrada (opcional)
-aiosqlite==0.17.0  # Solo si decides utilizar la versión asíncrona
-
-# Renderizado de plantillas Jinja para frontend
+# Moteur de rendu Jinja pour le frontend
 Jinja2==3.1.2
 python-multipart==0.0.6
 
-# Cualquier otra librería que se haya mencionado (para la lógica del frontend, si es aplicable)
+# Toute autre bibliothèque mentionnée (pour la logique du frontend, si applicable)
 requests==2.28.1
-
